@@ -23,7 +23,7 @@ const createTask = async (req, res) => {
       tasks: tasks,
     });
   } catch (err) {
-    res.send(500).json({ msg: err });
+    res.status(500).json({ msg: err });
   }
 };
 
@@ -48,9 +48,9 @@ const updateTask = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const task = findByIdAndUpdate({ _id: id }, req.body,{
-      new:true,
-      runValidators:true
+    const task = findByIdAndUpdate({ _id: id }, req.body, {
+      new: true,
+      runValidators: true,
     });
 
     if (!task) {

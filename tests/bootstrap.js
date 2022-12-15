@@ -1,3 +1,4 @@
+// todo: mock DB
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
 
@@ -20,7 +21,7 @@ afterEach(async () => {
   const collections = mongoose.connection.collections;
 
   for (const key in collections) {
-    const collection = collection[key];
+    const collection = collections[key];
 
     await collection.deleteMany();
   }
