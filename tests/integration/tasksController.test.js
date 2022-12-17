@@ -48,6 +48,8 @@ describe("Task Controller", () => {
     });
   });
 
+
+
   describe("update a task", () => {
     let task;
     beforeEach(async () => {
@@ -58,7 +60,7 @@ describe("Task Controller", () => {
 
     it("should return 404 if the task with the id doesnt exist", async () => {
       const taskId = "639c80ef98284bfdf111ad09";
-      const response = await request(app).delete(`/api/v1/tasks/${taskId}`);
+      const response = await request(app).patch(`/api/v1/tasks/${taskId}`);
 
       expect(response.status).toBe(404);
       expect(response.body.msg).toEqual("this task does not exist");
@@ -74,6 +76,9 @@ describe("Task Controller", () => {
       expect(response.body).toHaveProperty("task");
     });
   });
+
+
+
 
   describe("delete a task", () => {
     let task;
