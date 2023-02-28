@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(morgan('dev'))
 
 app.use("/api/v1/tasks", taskRouter);
-// app.use(notFound)
-// app.use(errorHandler)
+
+
 
 module.exports = app
